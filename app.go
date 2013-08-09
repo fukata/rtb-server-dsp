@@ -9,13 +9,12 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    params           := r.URL.Query()
-    id               := params["id"][0]
-    sleep_seconds, _ := strconv.Atoi( params["t"][0] )
-    status, _        := strconv.Atoi( params["s"][0] )
+    id               := r.FormValue("id")
+    sleep_seconds, _ := strconv.Atoi( r.FormValue("t") )
+    status, _        := strconv.Atoi( r.FormValue("s") )
     price            := 0
-    if params["p"] != nil {
-        price, _ = strconv.Atoi( params["p"][0] )
+    if r.FormValue("p") != "" {
+        price, _ = strconv.Atoi( r.FormValue("p") )
     }
 
     if sleep_seconds > 0 {
