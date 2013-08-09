@@ -9,16 +9,16 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    id               := r.FormValue("id")
-    sleep_seconds, _ := strconv.Atoi( r.FormValue("t") )
-    status, _        := strconv.Atoi( r.FormValue("s") )
-    price            := 0
+    id                    := r.FormValue("id")
+    sleep_milliseconds, _ := strconv.Atoi( r.FormValue("t") )
+    status, _             := strconv.Atoi( r.FormValue("s") )
+    price                 := 0
     if r.FormValue("p") != "" {
         price, _ = strconv.Atoi( r.FormValue("p") )
     }
 
-    if sleep_seconds > 0 {
-        time.Sleep( time.Second * time.Duration( sleep_seconds ) ) // milliseconds -> seconds
+    if sleep_milliseconds > 0 {
+        time.Sleep( time.Millisecond * time.Duration( sleep_milliseconds ) ) // milliseconds
     }
 
     w.Header().Set("Content-Type", "application/json")
