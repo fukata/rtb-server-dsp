@@ -3,9 +3,13 @@ rtb-server-dsp
 
 Implement RTB Server for DSP side.
 
+# Run
+
+    $ go run app.go -port 5000
+
 # Example
-    $ go run app.go -port 8080
-    $ curl -i 'http://localhost:8080/ad?id=vVcz45AhEII77xApR5PNyv5Qn0vdWDcJ2y7vmkFpZEwMCI42EHwxiKYEwzsb59bQ&p=351000&s=1&t=10'
+    $ go run app.go -port 5000
+    $ curl -i 'http://localhost:5000/ad?id=vVcz45AhEII77xApR5PNyv5Qn0vdWDcJ2y7vmkFpZEwMCI42EHwxiKYEwzsb59bQ&p=351000&s=1&t=10'
     HTTP/1.1 200 OK
     Content-Type: application/json
     Content-Length: 99
